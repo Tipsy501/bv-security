@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BV Security Products | Your One Stop Security Shop</title>
+    <meta name="description" content="BV Security Products is a trusted supplier of high-quality security solutions in Gaborone, Botswana. Alarms, CCTV, Fencing, and more.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --primary: #0f172a; /* Dark Blue/Black */
+            --secondary: #1e293b;
+            --accent: #ef4444; /* Red */
+            --text-light: #f8fafc;
+            --text-dark: #0f172a;
+            --gray: #64748b;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header */
+        header {
+            background: var(--primary);
+            color: var(--white);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+                gap: 2rem;
+            }
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&q=80&w=1920') center/cover no-repeat;
+            color: var(--white);
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--accent);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .btn:hover {
+            background: #dc2626;
+            transform: translateY(-2px);
+        }
+
+        .btn-whatsapp {
+            background: #25d366;
+        }
+
+        .btn-whatsapp:hover {
+            background: #128c7e;
+        }
+
+        /* Services Section */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.25rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            margin: 0.75rem auto 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: #f1f5f9;
+            padding: 2.5rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-bottom: 4px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            border-bottom-color: var(--accent);
+        }
+
+        .service-icon {
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        /* Brands Section */
+        .brands {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            align-items: center;
+            text-align: center;
+        }
+
+        .brand-item {
+            font-weight: 700;
+            font-size: 1.1rem;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .brand-item:hover {
+            opacity: 1;
+            color: var(--accent);
+        }
+
+        /* About & Why Choose Us */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        @media (min-width: 992px) {
+            .about-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .about-content h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content p {
+            margin-bottom: 2rem;
+            color: var(--gray);
+        }
+
+        .why-list {
+            list-style: none;
+        }
+
+        .why-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .why-item i {
+            color: var(--accent);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: #f8fafc;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .contact-info h3 {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-detail {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-detail i {
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 400px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 4px solid var(--accent);
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo span {
+            color: var(--accent);
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            font-size: 0.875rem;
+            color: var(--gray);
+        }
+
+        /* Mobile Menu Toggle (Simple JS) */
+        .menu-btn {
+            display: block;
+            background: none;
+            border: none;
+            color: var(--white);
+            cursor: pointer;
+        }
+
+        @media (min-width: 768px) {
+            .menu-btn {
+                display: none;
+            }
+        }
+
+        .mobile-nav {
+            display: none;
+            background: var(--secondary);
+            padding: 1rem;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .mobile-nav.active {
+            display: flex;
+        }
+
+        .mobile-nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i data-lucide="shield-check"></i>
+                    BV SECURITY <span>PRODUCTS</span>
+                </div>
+                <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#services">Services</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <button class="menu-btn" id="menuToggle">
+                    <i data-lucide="menu"></i>
+                </button>
+            </nav>
+        </div>
+        <div class="mobile-nav" id="mobileNav">
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Protect What Matters Most</h1>
+            <p>Supplying reliable home and business security systems in Gaborone. Your One Stop Security Shop.</p>
+            <a href="https://wa.me/2673952973" class="btn btn-whatsapp">
+                <i data-lucide="message-circle"></i>
+                Get a Quote on WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <section class="section" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Products & Services</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i data-lucide="bell" size="48"></i></div>
+                    <h3>Alarm Systems</h3>
+                    <p>Advanced intrusion detection systems for homes and commercial properties.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i data-lucide="zap" size="48"></i></div>
+                    <h3>Electric Fencing</h3>
+                    <p>High-voltage perimeter security solutions to deter and detect intruders.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i data-lucide="phone-call" size="48"></i></div>
+                    <h3>Intercom Systems</h3>
+                    <p>Secure communication and access control for your entrance points.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i data-lucide="settings" size="48"></i></div>
+                    <h3>Gate & Garage Automation</h3>
+                    <p>Reliable motors and automation for seamless, secure entry.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i data-lucide="video" size="48"></i></div>
+                    <h3>CCTV & Surveillance</h3>
+                    <p>High-definition monitoring solutions for 24/7 peace of mind.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i data-lucide="lock" size="48"></i></div>
+                    <h3>Access Control</h3>
+                    <p>Biometric and card-based systems to manage entry permissions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section brands">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: white;">Trusted Brands We Supply</h2>
+            </div>
+            <div class="brands-grid">
+                <div class="brand-item">Centurion Systems</div>
+                <div class="brand-item">Paradox</div>
+                <div class="brand-item">Commax</div>
+                <div class="brand-item">Nemtek</div>
+                <div class="brand-item">DTS</div>
+                <div class="brand-item">IDS</div>
+                <div class="brand-item">NICE ET</div>
+                <div class="brand-item">Provision</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <h2>About BV Security Products</h2>
+                    <p>BV Security Products is a trusted supplier of high-quality security solutions in Gaborone, offering a wide range of products to protect homes and businesses. We pride ourselves on being the leading choice for security professionals and homeowners alike.</p>
+                    
+                    <h3>Why Choose Us</h3>
+                    <ul class="why-list">
+                        <li class="why-item"><i data-lucide="check-circle"></i> Wide product range</li>
+                        <li class="why-item"><i data-lucide="check-circle"></i> Trusted brands</li>
+                        <li class="why-item"><i data-lucide="check-circle"></i> Reliable service</li>
+                        <li class="why-item"><i data-lucide="check-circle"></i> Value for money</li>
+                    </ul>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&q=80&w=800" alt="Security Systems" style="width: 100%; border-radius: 8px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);" referrerPolicy="no-referrer">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Contact Details</h3>
+                    <div class="contact-detail">
+                        <i data-lucide="map-pin"></i>
+                        <div>
+                            <strong>Address</strong><br>
+                            Unit 3, Plot 5665, Gaborone
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <i data-lucide="phone"></i>
+                        <div>
+                            <strong>Phone</strong><br>
+                            395 2973
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <i data-lucide="clock"></i>
+                        <div>
+                            <strong>Business Hours</strong><br>
+                            Mon–Fri: 8am – 5pm
+                        </div>
+                    </div>
+                    <div style="margin-top: 2rem;">
+                        <a href="https://wa.me/2673952973" class="btn btn-whatsapp">
+                            <i data-lucide="message-circle"></i>
+                            Chat on WhatsApp
+                        </a>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <!-- Google Maps Embed for Plot 5665 Gaborone -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3643.966456012345!2d25.912345!3d-24.654321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1955990000000000%3A0x0!2zMjTCsDM5JzE1LjUiUyAyNcKwNTQnNDQuNCJF!5e0!3m2!1sen!2sbw!4v1616456789012!5m2!1sen!2sbw" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                BV SECURITY <span>PRODUCTS</span>
+            </div>
+            <p>Your One Stop Security Shop in Gaborone.</p>
+            <div class="copyright">
+                &copy; 2026 BV Security Products. All rights reserved.<br>
+                Developed by Topo Gabolekwe | Topzero Group
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileNav = document.getElementById('mobileNav');
+
+        menuToggle.addEventListener('click', () => {
+            mobileNav.classList.toggle('active');
+        });
+
+        // Close mobile nav when clicking a link
+        const mobileLinks = mobileNav.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
+
