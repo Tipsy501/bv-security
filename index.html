@@ -16,6 +16,7 @@
             --primary: #0f172a; /* Dark Blue/Black */
             --secondary: #1e293b;
             --accent: #ef4444; /* Red */
+            --whatsapp: #25d366;
             --text-light: #f8fafc;
             --text-dark: #0f172a;
             --gray: #64748b;
@@ -143,7 +144,7 @@
         }
 
         .btn-whatsapp {
-            background: #25d366;
+            background: var(--whatsapp);
         }
 
         .btn-whatsapp:hover {
@@ -376,6 +377,38 @@
             text-decoration: none;
             font-weight: 600;
         }
+
+        /* Floating WhatsApp Button */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--whatsapp);
+            color: var(--white);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            z-index: 9999;
+            transition: transform 0.3s;
+            text-decoration: none;
+        }
+
+        .floating-whatsapp:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .floating-whatsapp {
+                bottom: 1.5rem;
+                right: 1.5rem;
+                width: 50px;
+                height: 50px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -410,7 +443,7 @@
         <div class="container">
             <h1>Protect What Matters Most</h1>
             <p>Supplying reliable home and business security systems in Gaborone. Your One Stop Security Shop.</p>
-            <a href="https://wa.me/2673952973" class="btn btn-whatsapp">
+            <a href="https://wa.me/26773195959" class="btn btn-whatsapp">
                 <i data-lucide="message-circle"></i>
                 Get a Quote on WhatsApp
             </a>
@@ -515,8 +548,8 @@
                     <div class="contact-detail">
                         <i data-lucide="phone"></i>
                         <div>
-                            <strong>Phone</strong><br>
-                            395 2973
+                            <strong>Phone / WhatsApp</strong><br>
+                            +267 73195959
                         </div>
                     </div>
                     <div class="contact-detail">
@@ -527,7 +560,7 @@
                         </div>
                     </div>
                     <div style="margin-top: 2rem;">
-                        <a href="https://wa.me/2673952973" class="btn btn-whatsapp">
+                        <a href="https://wa.me/26773195959" class="btn btn-whatsapp">
                             <i data-lucide="message-circle"></i>
                             Chat on WhatsApp
                         </a>
@@ -553,6 +586,11 @@
             </div>
         </div>
     </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/26773195959" class="floating-whatsapp" title="Chat on WhatsApp">
+        <i data-lucide="message-circle" size="32"></i>
+    </a>
 
     <script>
         // Initialize Lucide Icons
